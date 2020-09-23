@@ -30,10 +30,10 @@
                 </div>
                 <div class="col-md-3">
                     {!! Form::label('category', 'Categoría:', array('class' => 'negrita')) !!}
-                    {{-- <div class="input-group">
+                    <div class="input-group">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-keyboard"></i></span>
-                        {!! Form::select("category", null, 0, ["class" => "form-select"]) !!}
-                    </div>  --}}
+                        {!! Form::select("category", $cats, 0, ["class" => "form-select"]) !!}
+                    </div>  
                 </div>
                 <div class="col-md-3">
                     <label for="img">Imagen destacada</label>

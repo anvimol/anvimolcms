@@ -55,8 +55,8 @@
                         </div>
                     </div>
                 {!! Form::close() !!}
-           {{--  </div>
-            <table class="table table-striped">
+            {{-- </div> --}}
+            <table class="table table-striped mtop16">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -72,7 +72,7 @@
                         <tr>
                             <td width="50">{{ $product->id }}</td>
                             <td width="64">
-                                <a href="{{ url('/uploads/' . $product->file_path . '/' . $product->image) }}" data-fancybox="gallery">
+                                <a href="{{ url('/uploads/' . $product->file_path . '/' . $product->image) }}" class="single-image">
                                     <img src="{{ url('/uploads/' . $product->file_path . '/t_' . $product->image) }}" width="64">
                                 </a>
                             </td>
@@ -82,12 +82,12 @@
                             <td>{{ $product->price }}</td>
                             <td>
                                 <div class="opts">
-                                    @if (kvfj(Auth::user()->permissions, 'product_edit'))
+                                    {{-- @if (kvfj(Auth::user()->permissions, 'product_edit')) --}}
                                     <a href="{{ url('/admin/product/'.$product->id.'/edit') }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                         <i class="far fa-edit"></i>
                                     </a>
-                                    @endif
-                                    @if (kvfj(Auth::user()->permissions, 'product_delete'))
+                                   {{--  @endif
+                                    @if (kvfj(Auth::user()->permissions, 'product_delete')) --}}
                                         @if (is_null($product->deleted_at))
                                         <a href="#" data-path="admin/product" data-action="delete" data-object="{{ $product->id }}" data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn_delete">
                                             <i class="fas fa-trash-alt"></i>
@@ -97,7 +97,7 @@
                                             <i class="fas fa-trash-restore"></i>
                                         </a>
                                         @endif
-                                    @endif
+                                    {{-- @endif --}}
                                 </div>
                             </td>
                         </tr>
@@ -106,7 +106,7 @@
                         <td colspan="6">{!! $products->render() !!}</td>
                     </tr>
                 </tbody>
-            </table> --}}
+            </table> 
         </div>
     </div>
 </div>

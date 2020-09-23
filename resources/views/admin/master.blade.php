@@ -11,7 +11,8 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url('/static/css/admin.css?v='.time()) }}">    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" /> --}}
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -20,12 +21,30 @@
     <script src="https://kit.fontawesome.com/bf3fed8ca8.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ url('/static/libs/ckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.7"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ url('/static/js/admin.js?v='.time()) }}"></script>
     <script>
         $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="tooltip"]').tooltip();
+            $(".single-image").fancybox({
+                openEffect : 'elastic',   //'fade', 'elastic'
+                closeEffect	: 'elastic',
+                openSpeed:'normal', //ms, slow, normal, fast (default 250ms)
+                closeSpeed:'normal',
+                helpers : {
+                    title : {
+                    type : 'inside' //'float', 'inside', 'outside' or 'over'
+                    },
+                    overlay : {
+                    closeClick : true  // if true, se cierra al hacer click fuera de la imagen
+                    }
+                },
+                padding:11
+            });
         }); 
+        
+
         /* var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'));
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
